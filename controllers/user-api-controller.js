@@ -1,7 +1,6 @@
 import User from './../Models/User.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken'
-import { secretkey } from '../secretkey.js';
 import {tokenAuth} from './../tokenAuth.js'
 
 const createUser = (req, res) => {
@@ -39,7 +38,7 @@ const loginUser = async (req, res)=> {
         const correctPassword = bcrypt.compareSync(password, user.password);
 
         if(correctPassword){
-            const token = jwt.sign({id: user._id, name: user.name}, secretkey);
+            const token = jwt.sign({id: user._id, name: user.name}, process.env.secretkey);
 
             res.json({
                 message: "Logged in successfully",

@@ -32,13 +32,13 @@ const  PORT = process.env.PORT || 5000
 const database = process.env.databaseUrl;
 
 
-mongoose.connect("mongodb://localhost:27017/hitstore", (err)=>{
+mongoose.connect(database, (err)=>{
 
     if(err){
         console.log("Could not connect to db");
     } else {
         console.log("Connected to the db");
-        app.listen(PORT, () => console.log(`http://localhost:${PORT}`))
+        app.listen(PORT, () => console.log(`The App is listening`))
     }
 })
 
