@@ -15,13 +15,13 @@ import gossipRoutes from './api/gossip-api.js';
 import commentRoutes from './api/comments-api.js';
 
 const app  = express();
-const corsOptions = {
+/* const corsOptions = {
     origin: "*",
     allowedHeaders: ['Content-Type', 'Authorization']
 }
+ */
 
-
-app.use(cors(corsOptions));
+app.use(cors());
 //app.options("*", cors())
 
 dotenv.config();
