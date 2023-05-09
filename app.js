@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose'
 import cors from 'cors';
 import dotenv from 'dotenv'
+import { envVariables } from './config.js';
 import productRoutes from './api/product-api.js';
 import orderRoutes from './api/order-api.js';
 import eventRoutes from './api/event-api.js';
@@ -29,10 +30,9 @@ app.use(express.urlencoded({ extended: false}));
 
 
 const  PORT = process.env.PORT || 5000
-const database = process.env.databaseUrl;
 
 
-mongoose.connect(database, (err)=>{
+mongoose.connect(envVariables.database, (err)=>{
 
     if(err){
         console.log("Could not connect to db");
